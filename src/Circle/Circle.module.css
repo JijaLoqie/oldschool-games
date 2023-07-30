@@ -1,0 +1,68 @@
+:root {
+    --small-circle-size: 200px;
+    --big-circle-size: 250px;
+    
+    --small-circle-color: #ce5f5f;
+    --big-circle-color: #c33c3c;
+}
+
+
+.SmallCircle {
+    background-color: var(--small-circle-color);
+
+    /* Circle */
+    width: var(--small-circle-size);
+    height: var(--small-circle-size);
+    border-radius: 100%;
+
+    /* font, text */
+    color: black;
+
+
+    /* flex */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    box-shadow: 0 0 20px black;
+    position: absolute;
+
+}
+
+.BigCircle {
+    grid-area: main;
+    background-color: var(--big-circle-color);
+
+    /* Circle */
+    width: var(--big-circle-size);
+    height: var(--big-circle-size);
+    border-radius: 100%;
+
+    /* font, text */
+    color: black;
+
+
+    /* flex */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Segment {
+    width: var(--big-circle-size);
+    height: var(--big-circle-size);
+    background-image: linear-gradient(126deg, transparent 50%, var(--big-circle-color) 50%),
+    linear-gradient(60deg, var(--big-circle-color) 50%, transparent 50%),
+    radial-gradient(var(--small-circle-color) 60%, var(--small-circle-color) 10%);
+    
+    border-radius: 100%;
+    position: fixed;
+    box-shadow: 0 0 20px red;
+
+    /* flex */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* radial-gradient(var(--small-circle-color) 60%, blue 10%), */
