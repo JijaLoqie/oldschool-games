@@ -4,6 +4,7 @@ import './App.css';
 import cn from 'classnames'
 
 import Circle from './Circle/Circle';
+import SnakeGame from './SnakeGame/SnakeGame';
 
 // Converts from degrees to radians.
 Math.radians = function(degrees) {
@@ -21,13 +22,24 @@ function App() {
   const [angle, setAngle] = useState(0)
   const [direction, setDirection] = useState("CENTER")
 
+  const [mode, setMode] = useState("CENTER")
+
   const handleMouseMove = (e) => {
     const newCoords = {x: e.clientX, y: e.clientY}
-    const headerElement = document.getElementsByClassName("App-header")[0]
+    const headerElement = document.getElementsByClassName("App")[0]
     setCenter({x: headerElement.offsetWidth / 2, y: headerElement.offsetHeight / 2})
-    // setCenter({x: window.screen.width / 2, y: window.screen.height / 2})
 
     setMouseCoords({x: newCoords.x - center.x, y: newCoords.y - center.y})
+  }
+
+  const handleMouseClick = (e) => {
+    if (mode === "CENTER") {
+      setMode(direction)
+    }
+  }
+
+  const handleStartPage = () => {
+    setMode("CENTER")
   }
 
   const vectorToDirection = (radAngle) => {
@@ -56,8 +68,8 @@ function App() {
 
   
   return (
-    <div className="App" onMouseMove={handleMouseMove}>
-      <header className={
+    <div className="App" onMouseMove={handleMouseMove} onMouseDown={handleMouseClick}>
+      {mode === "CENTER" && <header className={
       cn(
         "App-header",
       )}
@@ -91,7 +103,8 @@ function App() {
         )}>
           <img alt="math" src={direction === "DOWN" ? 'math_red.png' : 'math_black.png'}/>
         </div>
-      </header>
+      </header> ||
+      mode == "UP" && <SnakeGame center={center} mouseCoords={mouseCoords} handleGoBack={handleStartPage}/>}
     </div>
   );
 }
