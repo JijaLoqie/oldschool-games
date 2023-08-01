@@ -10,12 +10,12 @@ import {Stage, Layer, Text, Rect, Circle, Line} from 'react-konva'
 const SnakeGame = ({mouseCoords, center, handleGoBack}) => {
     const [snake, setSnake] = useState([])
     const [buffs, setBuffs] = useState([{x: 5, y: 5, color: "blue", buffRate: 1}])
-    const [snakeSize, setSnakeSize] = useState(5)
+    const [snakeSize, setSnakeSize] = useState(1)
     const [loose, setLoose] = useState(false)
 
 
     useEffect(() => {
-        setBuffs(oldBuff => [...oldBuff, {x: random(0, 10), y: random(0, 10), color: "blue", buffRate: 1}])
+        setBuffs(oldBuff => [...oldBuff, {x: random(0, Math.floor(window.innerWidth / CELL_SIZE)), y: random(0, Math.floor(window.innerHeight / CELL_SIZE)), color: "blue", buffRate: 1}])
     }, [snakeSize])
 
 

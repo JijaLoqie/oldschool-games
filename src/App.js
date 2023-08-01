@@ -5,6 +5,7 @@ import cn from 'classnames'
 
 import Circle from './Circle/Circle';
 import SnakeGame from './SnakeGame/SnakeGame';
+import { SaperGame } from './SaperGame/SaperGame';
 
 // Converts from degrees to radians.
 Math.radians = function(degrees) {
@@ -104,7 +105,10 @@ function App() {
           <img alt="math" src={direction === "DOWN" ? 'math_red.png' : 'math_black.png'}/>
         </div>
       </header> ||
-      mode == "UP" && <SnakeGame center={center} mouseCoords={mouseCoords} handleGoBack={handleStartPage}/>}
+      mode == "UP" && <SnakeGame center={center} mouseCoords={mouseCoords} handleGoBack={handleStartPage}/> ||
+      mode == "RIGHT" && <SaperGame center={center} mouseCoords={mouseCoords} handleGoBack={handleStartPage}/>
+      
+      }
     </div>
   );
 }
