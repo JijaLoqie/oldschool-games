@@ -6,6 +6,7 @@ import cn from 'classnames'
 import Circle from './Circle/Circle';
 import SnakeGame from './SnakeGame/SnakeGame';
 import { SaperGame } from './SaperGame/SaperGame';
+import { TetrisGame } from './TetrisGame/TetrisGame';
 
 // Converts from degrees to radians.
 Math.radians = function(degrees) {
@@ -106,7 +107,8 @@ function App() {
         </div>
       </header> ||
       mode == "UP" && <SnakeGame center={center} mouseCoords={mouseCoords} handleGoBack={handleStartPage}/> ||
-      mode == "RIGHT" && <SaperGame center={center} mouseCoords={mouseCoords} handleGoBack={handleStartPage}/>
+      mode == "RIGHT" && <SaperGame center={center} mouseCoords={mouseCoords} handleGoBack={handleStartPage}/> ||
+      mode == "LEFT" && <TetrisGame center={center} mouseCoords={mouseCoords} handleGoBack={handleStartPage}/>
       
       }
     </div>
